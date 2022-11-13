@@ -4,6 +4,11 @@ let quizData = require("../quizData.json");
 
 const Home = () => {
   const question = quizData.data.getStep.stepQuiz.questionText;
+  const answers = quizData.data.getStep.stepQuiz.answerOptions;
+  interface AnswerInterface {
+    answerText: string;
+    isCorrect: Boolean;
+  }
 
   return (
     <div>
@@ -14,6 +19,13 @@ const Home = () => {
       </Head>
 
       <h2>{question}</h2>
+
+      <h3 id="answer-heading">Select Answer</h3>
+      <ul aria-labelledby="answer-heading">
+        {answers.map((answer: AnswerInterface) => (
+          <li key={answer.answerText}>{answer.answerText}</li>
+        ))}
+      </ul>
     </div>
   );
 };
