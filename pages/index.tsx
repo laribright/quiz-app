@@ -1,6 +1,10 @@
 import Head from "next/head";
 
-export default function Home() {
+let quizData = require("../quizData.json");
+
+const Home = () => {
+  const question = quizData.data.getStep.stepQuiz.questionText;
+
   return (
     <div>
       <Head>
@@ -8,6 +12,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Quiz application" />
       </Head>
+
+      <h2>{question}</h2>
     </div>
   );
-}
+};
+
+export default Home;
