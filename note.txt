@@ -1,0 +1,7 @@
+// Developing a Quiz
+
+// 1) Display the question
+// 2) List the Options 
+// 3) A button that's disabled until an answer is chosen
+// 4) If the answer is wrong, display the correct answer and give the user the chance to start again
+// 5) If the answer is correct, display a success message.
