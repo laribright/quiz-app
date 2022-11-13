@@ -1,4 +1,4 @@
-import { screen, render } from "@testing-library/react";
+import { screen, render, within } from "@testing-library/react";
 
 import Home from "@/pages/index";
 
@@ -13,5 +13,17 @@ describe("<HomePage />", () => {
 
     expect(quizQuestion).toBeInTheDocument();
     expect(quizQuestion).toHaveTextContent(QUIZ_QUESTION);
+  });
+
+  it("displays the quiz answers", () => {
+    setup();
+
+    const list = screen.getByRole("list", {
+      name: /Select Answer/i,
+    });
+    const { getAllByRole } = within(list);
+    const answers = getAllByRole("listitem");
+    
+    expect(answers.length).toBe(4);
   });
 });
