@@ -1,14 +1,23 @@
 import Head from "next/head";
+import { useState } from "react";
 
 let quizData = require("../quizData.json");
 
 const Home = () => {
+  const [selectedAnswer, setSelectedAnswer] = useState<AnswerInterface | null>(
+    null
+  );
+
   const question = quizData.data.getStep.stepQuiz.questionText;
   const answers = quizData.data.getStep.stepQuiz.answerOptions;
   interface AnswerInterface {
     answerText: string;
     isCorrect: Boolean;
   }
+
+  const onAnswerSelected = (answer: AnswerInterface) => {
+    setSelectedAnswer(answer);
+  };
 
   return (
     <div className="bg-gradient-to-r from-indigo-500 grid place-content-center via-purple-500 to-pink-500 w-screen h-screen">
@@ -28,6 +37,7 @@ const Home = () => {
           <ul aria-labelledby="answer-heading">
             {answers.map((answer: AnswerInterface) => (
               <li
+                onClick={() => onAnswerSelected(answer)}
                 className="border-indigo-500 border-[2px] rounded-md my-3 cursor-pointer hover:-translate-y-1 duration-200 hover:shadow-xl py-3 px-4"
                 key={answer.answerText}
               >
@@ -38,8 +48,8 @@ const Home = () => {
         </div>
 
         <button
-          disabled
-          className="bg-pink-500 text-white px-5 py-3 hover:scale-105 duration-300 rounded-md cursor-pointer"
+          disabled={!selectedAnswer}
+          className="bg-pink-500 disabled:bg-pink-400 disabled:cursor-not-allowed text-white px-5 py-3 disabled:hover:scale-100 hover:scale-105 duration-300 rounded-md cursor-pointer"
         >
           Check Answer
         </button>
