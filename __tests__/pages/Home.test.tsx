@@ -70,7 +70,7 @@ describe("<HomePage />", () => {
   it("does not render the notification component initially", () => {
     setup();
 
-    const NotificationModalEl = screen.getByTestId("notification-modal");
+    const NotificationModalEl = screen.queryByTestId("notification-modal");
 
     expect(NotificationModalEl).not.toBeInTheDocument();
   });
