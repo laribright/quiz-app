@@ -1,3 +1,4 @@
+import NotificationModal from "@/components/NotificationModal";
 import Head from "next/head";
 import { useState } from "react";
 
@@ -26,6 +27,8 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Quiz application" />
       </Head>
+
+      <NotificationModal />
 
       <main className="md:w-[50vw] border border-white p-4 rounded-lg bg-opacity-60 backdrop-filter backdrop-blur-lg bg-white">
         <div className="text-center border-pink-400 border-[2px] text-2xl font-semibold py-3 rounded-sm">
