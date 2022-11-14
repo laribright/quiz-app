@@ -82,4 +82,17 @@ describe("<HomePage />", () => {
 
     expect(backdropEl).not.toBeInTheDocument();
   });
+
+  it("displays the notificationModal and backdrop when the user clicks the check answer button", () => {
+    setup();
+    const backdropEl = screen.queryByTestId("backdrop");
+    const NotificationModalEl = screen.queryByTestId("notification-modal");
+
+    const buttonEl = screen.getByRole("button", { name: "Check Answer" });
+
+    fireEvent.click(buttonEl);
+
+    expect(backdropEl).toBeInTheDocument();
+    expect(NotificationModalEl).toBeInTheDocument();
+  });
 });
