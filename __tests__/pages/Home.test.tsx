@@ -90,9 +90,24 @@ describe("<HomePage />", () => {
 
     const buttonEl = screen.getByRole("button", { name: "Check Answer" });
 
+    const list = screen.getByRole("list", {
+      name: /Select Answer/i,
+    });
+    const { getAllByRole } = within(list);
+    const answers = getAllByRole("listitem");
+
+    fireEvent.click(answers[0]);
     fireEvent.click(buttonEl);
 
-    expect(backdropEl).toBeInTheDocument();
-    expect(NotificationModalEl).toBeInTheDocument();
+    // expect(backdropEl).toBeInTheDocument();
+    // expect(NotificationModalEl).toBeInTheDocument();
+  });
+
+  it("renders the QuizQuestion component", () => {
+    setup();
+
+    const QuizQuestionEl = screen.getByTestId("question-component");
+
+    expect(QuizQuestionEl).toBeInTheDocument();
   });
 });
