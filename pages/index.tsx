@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import Backdrop from "@/components/UI/Backdrop";
 import QuizQuestion from "@/components/QuizQuestion/QuizQuestion";
+import QuizAnswers from "@/components/QuizAnswers/QuizAnswers";
 let quizData = require("../quizData.json");
 
 const Home = () => {
@@ -35,30 +36,19 @@ const Home = () => {
         <meta name="description" content="Quiz application" />
       </Head>
 
-      {selectedAnswer && <Backdrop />}
+      {displayResult && <Backdrop />}
 
-      {selectedAnswer && <NotificationModal isCorrect={true} />}
+      {displayResult && <NotificationModal isCorrect={true} />}
 
       <main className="md:w-[50vw] border border-white p-4 rounded-lg bg-opacity-60 backdrop-filter backdrop-blur-lg bg-white">
         <QuizQuestion question={question} />
 
         <div className="mt-14 mb-9">
-          <h3 id="answer-heading">Select Answer</h3>
-          <ul aria-labelledby="answer-heading">
-            {answers.map((answer: AnswerInterface) => (
-              <li
-                onClick={() => onAnswerSelected(answer)}
-                className={`${
-                  selectedAnswer?.answerText === answer.answerText
-                    ? "bg-indigo-500 text-white"
-                    : ""
-                } border-indigo-500 border-[2px] rounded-md my-3 cursor-pointer hover:-translate-y-1 duration-200 hover:shadow-xl py-3 px-4`}
-                key={answer.answerText}
-              >
-                {answer.answerText}
-              </li>
-            ))}
-          </ul>
+          <QuizAnswers
+            answers={answers}
+            onAnswerSelected={onAnswerSelected}
+            selectedAnswer={selectedAnswer}
+          />
         </div>
 
         <button
