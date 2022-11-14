@@ -36,6 +36,8 @@ const Home = () => {
             ))}
           </ul>
         </div>
+
+        <button disabled>Check Answer</button>
       </main>
     </div>
   );
