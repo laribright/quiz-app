@@ -9,6 +9,7 @@ const Home = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<AnswerInterface | null>(
     null
   );
+  const [displayResult, setDisplayResult] = useState(false);
 
   const question = quizData.data.getStep.stepQuiz.questionText;
   const answers = quizData.data.getStep.stepQuiz.answerOptions;
@@ -19,6 +20,10 @@ const Home = () => {
 
   const onAnswerSelected = (answer: AnswerInterface) => {
     setSelectedAnswer(answer);
+  };
+
+  const onCheckAnswer = () => {
+    setDisplayResult(true);
   };
 
   return (
@@ -58,6 +63,7 @@ const Home = () => {
         </div>
 
         <button
+          onClick={onCheckAnswer}
           disabled={!selectedAnswer}
           className="bg-pink-500 disabled:bg-pink-400 disabled:cursor-not-allowed text-white px-5 py-3 disabled:hover:scale-100 hover:scale-105 duration-300 rounded-md cursor-pointer"
         >
