@@ -75,11 +75,11 @@ describe("<HomePage />", () => {
     expect(NotificationModalEl).not.toBeInTheDocument();
   });
 
-  it("renders the backdrop component when", () => {
+  it("does not render the backdrop component initially", () => {
     setup();
 
-    const backdropEl = screen.getByTestId("backdrop");
+    const backdropEl = screen.queryByTestId("backdrop");
 
-    expect(backdropEl).toBeInTheDocument();
+    expect(backdropEl).not.toBeInTheDocument();
   });
 });
