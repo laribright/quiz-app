@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useState } from "react";
 
 import Backdrop from "@/components/UI/Backdrop";
+import QuizQuestion from "@/components/QuizQuestion/QuizQuestion";
 let quizData = require("../quizData.json");
 
 const Home = () => {
@@ -39,9 +40,7 @@ const Home = () => {
       {selectedAnswer && <NotificationModal isCorrect={true} />}
 
       <main className="md:w-[50vw] border border-white p-4 rounded-lg bg-opacity-60 backdrop-filter backdrop-blur-lg bg-white">
-        <div className="text-center border-pink-400 border-[2px] text-2xl font-semibold py-3 rounded-sm">
-          <h2>{question}</h2>
-        </div>
+        <QuizQuestion question={question} />
 
         <div className="mt-14 mb-9">
           <h3 id="answer-heading">Select Answer</h3>
