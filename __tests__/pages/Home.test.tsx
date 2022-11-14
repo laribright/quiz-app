@@ -50,4 +50,20 @@ describe("<HomePage />", () => {
 
     expect(buttonEl).not.toBeDisabled();
   });
+
+  it("answer list item has an active class when user clicks on a particular answer", () => {
+    setup();
+
+    const list = screen.getByRole("list", {
+      name: /Select Answer/i,
+    });
+    const { getAllByRole } = within(list);
+    const answers = getAllByRole("listitem");
+
+    const buttonEl = screen.getByRole("button", { name: "Check Answer" });
+
+    fireEvent.click(answers[0]);
+
+    expect(answers[0]).toHaveClass("bg-indigo-500 text-white");
+  });
 });
