@@ -29,7 +29,7 @@ const Home = () => {
         <meta name="description" content="Quiz application" />
       </Head>
 
-      <Backdrop />
+      {selectedAnswer && <Backdrop />}
 
       {selectedAnswer && <NotificationModal isCorrect={true} />}
 
