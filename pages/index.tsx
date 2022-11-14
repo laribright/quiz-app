@@ -23,7 +23,7 @@ const Home = () => {
           <h2>{question}</h2>
         </div>
 
-        <div className="mt-14">
+        <div className="mt-14 mb-9">
           <h3 id="answer-heading">Select Answer</h3>
           <ul aria-labelledby="answer-heading">
             {answers.map((answer: AnswerInterface) => (
@@ -37,7 +37,12 @@ const Home = () => {
           </ul>
         </div>
 
-        <button disabled>Check Answer</button>
+        <button
+          disabled
+          className="bg-pink-500 text-white px-5 py-3 hover:scale-105 duration-300 rounded-md cursor-pointer"
+        >
+          Check Answer
+        </button>
       </main>
     </div>
   );
