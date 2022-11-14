@@ -31,7 +31,7 @@ const Home = () => {
 
       <Backdrop />
 
-      <NotificationModal isCorrect={true} />
+      {selectedAnswer && <NotificationModal isCorrect={true} />}
 
       <main className="md:w-[50vw] border border-white p-4 rounded-lg bg-opacity-60 backdrop-filter backdrop-blur-lg bg-white">
         <div className="text-center border-pink-400 border-[2px] text-2xl font-semibold py-3 rounded-sm">
