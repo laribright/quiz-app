@@ -17,7 +17,7 @@ const Home = () => {
   const answers = quizData.data.getStep.stepQuiz.answerOptions;
   interface AnswerInterface {
     answerText: string;
-    isCorrect: Boolean;
+    isCorrect: boolean;
   }
 
   const onAnswerSelected = (answer: AnswerInterface) => {
@@ -28,6 +28,11 @@ const Home = () => {
     setDisplayResult(true);
   };
 
+  const playAgainFn = () => {
+    setSelectedAnswer(null);
+    setDisplayResult(false);
+  };
+
   return (
     <div className="bg-gradient-to-r from-indigo-500 grid place-content-center via-purple-500 to-pink-500 w-screen h-screen">
       <Head>
@@ -36,9 +41,16 @@ const Home = () => {
         <meta name="description" content="Quiz application" />
       </Head>
 
-      {displayResult && <Backdrop />}
+      {selectedAnswer !== null && displayResult && <Backdrop />}
 
-      {displayResult && <NotificationModal isCorrect={true} />}
+      {selectedAnswer !== null && displayResult ? (
+        <NotificationModal
+          playAgainFn={playAgainFn}
+          isCorrect={selectedAnswer.isCorrect}
+        />
+      ) : (
+        <></>
+      )}
 
       <main className="md:w-[50vw] border border-white p-4 rounded-lg bg-opacity-60 backdrop-filter backdrop-blur-lg bg-white">
         <QuizQuestion question={question} />
