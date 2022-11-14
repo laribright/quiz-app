@@ -19,7 +19,7 @@ describe("<HomePage />", () => {
     setup();
 
     const list = screen.getByRole("list", {
-      name: /Select Answer/i,
+      name: /Select the Incorrect Answer From the List of Correct Answers/i,
     });
     const { getAllByRole } = within(list);
     const answers = getAllByRole("listitem");
@@ -39,7 +39,7 @@ describe("<HomePage />", () => {
     setup();
 
     const list = screen.getByRole("list", {
-      name: /Select Answer/i,
+      name: /Select the Incorrect Answer From the List of Correct Answers/i,
     });
     const { getAllByRole } = within(list);
     const answers = getAllByRole("listitem");
@@ -55,7 +55,7 @@ describe("<HomePage />", () => {
     setup();
 
     const list = screen.getByRole("list", {
-      name: /Select Answer/i,
+      name: /Select the Incorrect Answer From the List of Correct Answers/i,
     });
     const { getAllByRole } = within(list);
     const answers = getAllByRole("listitem");
@@ -91,7 +91,7 @@ describe("<HomePage />", () => {
     const buttonEl = screen.getByRole("button", { name: "Check Answer" });
 
     const list = screen.getByRole("list", {
-      name: /Select Answer/i,
+      name: /Select the Incorrect Answer From the List of Correct Answers/i,
     });
     const { getAllByRole } = within(list);
     const answers = getAllByRole("listitem");

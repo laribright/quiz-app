@@ -16,7 +16,7 @@ const NotificationModal: FC<NotificationModalProps> = (props) => {
       data-testid="notification-modal"
       className="w-[50vw] p-3 fixed z-20 text-center bg-white rounded-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
     >
-      {isCorrect ? (
+      {!isCorrect ? (
         <h4 className="mb-5 md:text-4xl font-semibold text-green-700">
           Congrats You Passed the Quiz
         </h4>
@@ -26,7 +26,7 @@ const NotificationModal: FC<NotificationModalProps> = (props) => {
         </h4>
       )}
 
-      {isCorrect && <Image src={ThumbsUp} alt="Thumbs Up" />}
+      {!isCorrect && <Image src={ThumbsUp} alt="Thumbs Up" />}
 
       <button
         onClick={playAgainFn}

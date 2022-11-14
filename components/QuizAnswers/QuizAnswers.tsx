@@ -13,7 +13,9 @@ const QuizAnswers: FC<QuizAnswersInterface> = (props) => {
 
   return (
     <>
-      <h3 id="answer-heading">Select Answer</h3>
+      <h3 id="answer-heading">
+        Select the Incorrect Answer From the List of Correct Answers
+      </h3>
       <ul aria-labelledby="answer-heading">
         {answers.map((answer: AnswerInterface) => (
           <li

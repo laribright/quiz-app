@@ -46,7 +46,7 @@ const Home = () => {
       {selectedAnswer !== null && displayResult ? (
         <NotificationModal
           playAgainFn={playAgainFn}
-          isCorrect={selectedAnswer.isCorrect}
+          isCorrect={JSON.parse(selectedAnswer.isCorrect)}
         />
       ) : (
         <></>
