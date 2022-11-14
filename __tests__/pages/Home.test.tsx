@@ -23,7 +23,15 @@ describe("<HomePage />", () => {
     });
     const { getAllByRole } = within(list);
     const answers = getAllByRole("listitem");
-    
+
     expect(answers.length).toBe(4);
+  });
+
+  it("submit button is of type button and is disabled initially when no answer is selected", () => {
+    setup();
+
+    const buttonEl = screen.getByRole("button", { name: "Check Answer" });
+
+    expect(buttonEl).toHaveAttribute("disabled");
   });
 });
