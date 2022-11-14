@@ -2,6 +2,7 @@ import NotificationModal from "@/components/NotificationModal";
 import Head from "next/head";
 import { useState } from "react";
 
+import Backdrop from "@/components/UI/Backdrop";
 let quizData = require("../quizData.json");
 
 const Home = () => {
@@ -27,6 +28,8 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Quiz application" />
       </Head>
+
+      <Backdrop />
 
       <NotificationModal />
 
