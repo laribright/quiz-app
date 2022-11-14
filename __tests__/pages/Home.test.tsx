@@ -67,12 +67,12 @@ describe("<HomePage />", () => {
     expect(answers[0]).toHaveClass("bg-indigo-500 text-white");
   });
 
-  it("renders the notification component", () => {
+  it("does not render the notification component initially", () => {
     setup();
 
     const NotificationModalEl = screen.getByTestId("notification-modal");
 
-    expect(NotificationModalEl).toBeInTheDocument();
+    expect(NotificationModalEl).not.toBeInTheDocument();
   });
 
   it("renders the backdrop component when", () => {
