@@ -1,4 +1,4 @@
-import { screen, render, within } from "@testing-library/react";
+import { screen, render, within, fireEvent } from "@testing-library/react";
 
 import Home from "@/pages/index";
 
@@ -33,5 +33,21 @@ describe("<HomePage />", () => {
     const buttonEl = screen.getByRole("button", { name: "Check Answer" });
 
     expect(buttonEl).toHaveAttribute("disabled");
+  });
+
+  it("enables the submit button when one answer is selected / clicked", () => {
+    setup();
+
+    const list = screen.getByRole("list", {
+      name: /Select Answer/i,
+    });
+    const { getAllByRole } = within(list);
+    const answers = getAllByRole("listitem");
+
+    const buttonEl = screen.getByRole("button", { name: "Check Answer" });
+
+    fireEvent.click(answers[0]);
+
+    expect(buttonEl).not.toBeDisabled();
   });
 });
