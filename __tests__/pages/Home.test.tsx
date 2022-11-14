@@ -66,4 +66,12 @@ describe("<HomePage />", () => {
 
     expect(answers[0]).toHaveClass("bg-indigo-500 text-white");
   });
+
+  it("renders the notification component", () => {
+    setup();
+
+    const NotificationModalEl = screen.getByTestId("notification-modal");
+
+    expect(NotificationModalEl).toBeInTheDocument();
+  });
 });
