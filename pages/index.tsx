@@ -17,7 +17,7 @@ const Home = () => {
   const answers = quizData.data.getStep.stepQuiz.answerOptions;
   interface AnswerInterface {
     answerText: string;
-    isCorrect: boolean;
+    isCorrect: any;
   }
 
   const onAnswerSelected = (answer: AnswerInterface) => {
