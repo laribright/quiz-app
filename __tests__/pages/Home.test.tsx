@@ -74,4 +74,12 @@ describe("<HomePage />", () => {
 
     expect(NotificationModalEl).toBeInTheDocument();
   });
+
+  it("renders the backdrop component when", () => {
+    setup();
+
+    const backdropEl = screen.getByTestId("backdrop");
+
+    expect(backdropEl).toBeInTheDocument();
+  });
 });
