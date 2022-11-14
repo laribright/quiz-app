@@ -38,7 +38,11 @@ const Home = () => {
             {answers.map((answer: AnswerInterface) => (
               <li
                 onClick={() => onAnswerSelected(answer)}
-                className="border-indigo-500 border-[2px] rounded-md my-3 cursor-pointer hover:-translate-y-1 duration-200 hover:shadow-xl py-3 px-4"
+                className={`${
+                  selectedAnswer?.answerText === answer.answerText
+                    ? "bg-indigo-500 text-white"
+                    : ""
+                } border-indigo-500 border-[2px] rounded-md my-3 cursor-pointer hover:-translate-y-1 duration-200 hover:shadow-xl py-3 px-4`}
                 key={answer.answerText}
               >
                 {answer.answerText}
